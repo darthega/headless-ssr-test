@@ -1,18 +1,12 @@
 import styles from './page.module.css'
-import { getClient } from '@ssr-test/lib/client'
-import { NavigationAllDocument } from './query'
+import { Navigation } from './Navigation/Navigation';
 
 export default async function Home() {
-  const { data } = await getClient().query({ query: NavigationAllDocument, variables: {
-    slug: 'website-menu',
-    currencyCode: 'EUR',
-  } })
-
-  console.log(data);
-
   return (
     <main className={styles.main}>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <header>
+        <Navigation />
+      </header>
     </main>
   )
 }
