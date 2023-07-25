@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@suits/ss-design-system": "file:../../ss-web-components",
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
