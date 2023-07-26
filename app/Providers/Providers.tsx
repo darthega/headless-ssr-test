@@ -1,7 +1,7 @@
 "use client";
-import { CountriesContext } from "@ssr-test/hooks/useCountries";
-import { CountryContext } from "@ssr-test/hooks/useCountry";
-import { CustomerContext, defaultCustomer } from "@ssr-test/hooks/useCustomer";
+import { CountriesContext } from "@headless-commerce/hooks/useCountries";
+import { CountryContext } from "@headless-commerce/hooks/useCountry";
+import { CustomerContext, defaultCustomer } from "@headless-commerce/hooks/useCustomer";
 import useSWR from "swr";
 
 const fetcher = (apiURL: string) =>

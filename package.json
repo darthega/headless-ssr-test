@@ -1,6 +1,7 @@
 {
-  "name": "ssr-test",
+  "name": "headless-commerce",
   "version": "0.1.0",
+  "description": "Suitsupply headless commerce",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -1,5 +1,5 @@
 "use client";
-import { useCustomer } from "@ssr-test/hooks/useCustomer";
+import { useCustomer } from "@headless-commerce/hooks/useCustomer";
 import { useEffect, useRef } from "react";
 import { CountrySelector } from "./CountrySelector";
 

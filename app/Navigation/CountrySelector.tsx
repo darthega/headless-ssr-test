@@ -1,4 +1,4 @@
-import { useCountries } from "@ssr-test/hooks/useCountries";
+import { useCountries } from "@headless-commerce/hooks/useCountries";
 import { headers } from "next/dist/client/components/headers";
 
 export function CountrySelector() {

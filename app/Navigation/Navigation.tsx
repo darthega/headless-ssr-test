@@ -1,6 +1,6 @@
-import { getClient } from "@ssr-test/lib/client";
+import { getClient } from "@headless-commerce/lib/client";
 import { Slider } from "./Slider";
-import { NavigationAllDocument } from "@ssr-test/gql/generated/graphql";
+import { NavigationAllDocument } from "@headless-commerce/gql/generated/graphql";
 
 export async function Navigation() {
   const { data } = await getClient().query({
