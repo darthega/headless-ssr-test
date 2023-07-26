@@ -1,0 +1,13 @@
+query expertPanel($id: String!) {
+  panelContentWrapper(id: $id) {
+    title
+    cloudinaryImage
+    panelContentCollection {
+      items {
+        sys {
+          id
+        }
+      }
+    }
+  }
+}

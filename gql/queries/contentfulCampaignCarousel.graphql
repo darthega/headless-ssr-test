@@ -1,0 +1,25 @@
+query contentfulCampaignCarousel($id: String!) {
+  campaignCarrousel(id: $id) {
+    contentCollection {
+      items {
+        categoryId
+        qtyOfProducts
+      }
+    }
+    title
+    cta {
+      title
+      link {
+        relativeUrl
+        referenceId
+        extraParameters
+        linkType
+      }
+      promotionEvents {
+        promotionClick
+        promotionView
+        promotionCreative
+      }
+    }
+  }
+}

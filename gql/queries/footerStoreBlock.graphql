@@ -1,0 +1,30 @@
+query footerStoreBlock($id: String!) {
+  footerStoreBlock(id: $id) {
+    title
+    description
+    internalTitle
+    cta {
+      title
+      text {
+        json
+      }
+      styling
+      link {
+        ... on NavigationLink {
+          internalTitle
+          relativeUrl
+          referenceId
+          extraParameters
+          linkType
+        }
+      }
+    }
+    image {
+      description
+      lazyloading
+      cloudinaryDesktopImage
+      cloudinaryMobileImage
+      cloudinaryTabletImage
+    }
+  }
+}

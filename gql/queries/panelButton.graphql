@@ -1,0 +1,34 @@
+query panelButton($id: String!, $countryCode: String!) {
+  panelButtonWithIcon(id: $id) {
+    text {
+      json
+      links {
+        entries {
+          inline {
+            ... on PhoneInfo {
+              phoneNumbersCollection(where: { countryCode_in: [$countryCode, "default"] }) {
+                items {
+                  phoneDisplay
+                  phoneValue
+                  countryCode
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    iconName
+    link {
+      relativeUrl
+      referenceId
+      extraParameters
+      linkType
+    }
+    promotionEvents {
+      promotionClick
+      promotionView
+      promotionCreative
+    }
+  }
+}

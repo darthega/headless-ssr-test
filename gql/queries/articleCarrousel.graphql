@@ -1,0 +1,39 @@
+query articleCarrouselContent($id: String!) {
+  articleCarrousel(id: $id) {
+    title
+    cta {
+      link {
+        extraParameters
+        linkType
+        relativeUrl
+        referenceId
+      }
+      title
+    }
+    contentCollection {
+      items {
+        ... on JournalPage {
+          thumbnailImage {
+            cloudinaryDesktopImage
+            cloudinaryTabletImage
+            cloudinaryMobileImage
+          }
+          title
+          slug
+          description
+          link {
+            extraParameters
+            linkType
+            relativeUrl
+            referenceId
+          }
+          promotionEvents {
+            promotionClick
+            promotionCreative
+            promotionView
+          }
+        }
+      }
+    }
+  }
+}

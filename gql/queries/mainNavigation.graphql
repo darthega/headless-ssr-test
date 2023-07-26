@@ -1,0 +1,103 @@
+fragment SubText on NavigationItemLable {
+  subText {
+    json
+    links {
+      entries {
+        inline {
+          ... on PriceInfo {
+            sys {
+              id
+            }
+            pricesCollection(limit: 2, where: { currencyCode_in: [$currencyCode, "default"] }) {
+              items {
+                currencyCode
+                priceValue
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ItemLabel on NavigationItem {
+  label {
+    text
+    icon
+    subMenuText
+    link {
+      linkType
+      referenceId
+      relativeUrl
+      extraParameters
+    }
+    ...SubText
+    promotionEvents {
+      promotionClick
+      promotionView
+      promotionCreative
+    }
+  }
+}
+
+query navigationAll($slug: String!, $currencyCode: String!) {
+  suSuNavigationMenuCollection(where: { slug: $slug }) {
+    items {
+      slug
+      groupCollection(limit: 3) {
+        total
+        #1st level
+        items {
+          text
+          hasTopDivider
+          fontStyling
+          itemsCollection(limit: 4) {
+            total
+            items {
+              sys {
+                id
+              }
+              ...ItemLabel
+              groupsCollection {
+                total
+                #2nd level
+                items {
+                  text
+                  hasTopDivider
+                  fontStyling
+                  itemsCollection(limit: 30) {
+                    items {
+                      sys {
+                        id
+                      }
+                      ...ItemLabel
+                      groupsCollection(limit: 3) {
+                        total
+                        items {
+                          text
+                          hasTopDivider
+                          fontStyling
+                          #3rd level
+                          itemsCollection(limit: 6) {
+                            total
+                            items {
+                              sys {
+                                id
+                              }
+                              ...ItemLabel
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

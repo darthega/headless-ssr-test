@@ -1,0 +1,59 @@
+query heroBannerContent($id: String!) {
+  heroBanner(id: $id) {
+    image {
+      internalTitle
+      description
+      cloudinaryTabletImage
+      cloudinaryDesktopImage
+      cloudinaryMobileImage
+      altText
+      lazyloading
+    }
+    colorPalette
+    desktopTextAlignment
+    tabletTextAlignment
+    mobileTextAlignment
+    title {
+      json
+    }
+    subline {
+      json
+      links {
+        entries {
+          inline {
+            ... on PriceInfo {
+              sys {
+                id
+              }
+              internalTitle
+              name
+              __typename
+              pricesCollection {
+                ... on PriceInfoPricesCollection {
+                  limit
+                  skip
+                  total
+                  items {
+                    ... on PriceInfoValue {
+                      currencyCode
+                      priceValue
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    link {
+      ... on NavigationLink {
+        internalTitle
+        relativeUrl
+        referenceId
+        extraParameters
+        linkType
+      }
+    }
+  }
+}
