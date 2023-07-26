@@ -20,7 +20,7 @@
       }
     ],
     "paths": {
-      "@ssr-test/*": ["./*"]
+      "@headless-commerce/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
