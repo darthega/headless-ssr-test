@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
-import { Navigation } from "./Navigation/Navigation";
-import { Providers } from "./Providers/Providers";
 import { headers } from "next/dist/client/components/headers";
+
+import { Providers } from "@components/Providers/Providers";
 
 export default async function Home() {
   const host = headers().get("host");
@@ -14,9 +14,6 @@ export default async function Home() {
   return (
     <Providers currentCountry={currentCountry} countries={countries}>
       <main className={styles.main}>
-        <header>
-          <Navigation />
-        </header>
       </main>
     </Providers>
   );

@@ -20,7 +20,12 @@
       }
     ],
     "paths": {
-      "@headless-commerce/*": ["./*"]
+      "@components/*": ["./app/components/*"],
+      "@gql/*": ["./gql/*"],
+      "@headless-commerce/*": ["./*"],
+      "@hooks/*": ["./hooks/*"],
+      "@lib/*": ["./lib/*"],
+      "@utils/*": ["./utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
