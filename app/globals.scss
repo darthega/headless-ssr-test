@@ -16,6 +16,9 @@
 }
 
 // General html styles
+html, body {
+  min-height: 100%;
+}
 html {
   font-family: var(--font-main);
   font-size: 16px;

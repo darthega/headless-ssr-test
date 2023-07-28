@@ -47,13 +47,6 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin=""
         />
-        <link
-          rel="preload"
-          href="https://cdn.suitsupply.com/fonts/susu-iconfont/susu-icons.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-        />
 
         <link
           rel="apple-touch-icon"

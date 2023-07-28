@@ -6,19 +6,24 @@ import { GoogleTagManagerEvents } from "@headless-commerce/types/GoogleTagManage
 import useGAEventGtm from "@hooks/useGAEventGtm";
 import { errorHandler } from "@utils/errorHandler";
 import { MenuStructure } from "./utils/menuStructure";
+import { useHasMounted } from "@headless-commerce/hooks/useHasMounted";
+import { NavigationMenu } from "@components/NavigationMenu/NavigationMenu";
+import { Icon } from "@components/Icon/Icon";
 
 export function MainMenu({ structure }: { structure: MenuStructure }) {
   const menuPanelRef: RefObject<HTMLSsSideSliderElement> = useRef(null);
   const [handleGAEventGtm] = useGAEventGtm();
+  const mounted = useHasMounted();
 
   useEffect(() => {
-    import("@suits/ss-design-system/dist/components/ss-icon")
-      .then(({ defineCustomElement }) => defineCustomElement())
-      .catch(errorHandler);
     import("@suits/ss-design-system/dist/components/ss-side-slider")
       .then(({ defineCustomElement }) => defineCustomElement())
       .catch(errorHandler);
   });
+
+  if (!mounted) {
+    return null;
+  }
 
   const _onMenuClick = () => {
     menuPanelRef.current?.toggle().catch(errorHandler);
@@ -33,7 +38,7 @@ export function MainMenu({ structure }: { structure: MenuStructure }) {
   return (
     <>
       <button className={styles.header__section__btn} onClick={_onMenuClick}>
-        <ss-icon icon="menu" aria-hidden="true"></ss-icon>
+        <Icon icon="menu" aria-hidden="true"></Icon>
         <span className="sr-only">Menu</span>
       </button>
       <ss-side-slider
@@ -43,9 +48,10 @@ export function MainMenu({ structure }: { structure: MenuStructure }) {
         mobile-overlay={true}
         position="left"
       >
-        <pre>{JSON.stringify(structure, null, 2)}</pre>
+        <NavigationMenu structure={structure} />
+
         {/* <NavigationMenu
-          sideSliderRefference={menuPanelRef}
+          // sideSliderRefference={menuPanelRef}
           structure={structure}
         /> */}
       </ss-side-slider>
