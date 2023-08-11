@@ -1,0 +1,12 @@
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/mixins/_breakpoints.scss' as bp;
+
+$link-hover-transition: color 0.2s ease-in-out;
+
+@mixin hover {
+    @include bp.respond-from('xl') {
+        &:hover,
+        &:active {
+            @content;
+        }
+    }
+}

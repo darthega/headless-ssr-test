@@ -10,8 +10,16 @@ import { useHeader } from "@hooks/useHeader";
 import styles from "./Header.module.scss";
 import { Icon } from "@components/Icon/Icon";
 import { Logo } from "@components/Logo/Logo";
+import { CurrencyContext } from "@headless-commerce/hooks/useCurrency";
+import { ICurrencyConfiguration } from "@headless-commerce/types/currencyConfiguration";
 
-export function HeaderClient({ structure }: { structure: MenuStructure }) {
+export function HeaderClient({
+  structure,
+  currencyConfiguration,
+}: {
+  structure: MenuStructure;
+  currencyConfiguration: ICurrencyConfiguration;
+}) {
   const headerRef: RefObject<HTMLElement> = useRef(null);
   const mounted = useHasMounted();
 
@@ -25,7 +33,9 @@ export function HeaderClient({ structure }: { structure: MenuStructure }) {
     <>
       <header ref={headerRef} className={styles.header}>
         <div className={styles.header__section}>
-          <MainMenu structure={structure} />
+          <CurrencyContext.Provider value={currencyConfiguration}>
+            <MainMenu structure={structure} />
+          </CurrencyContext.Provider>
         </div>
         <div className={styles.header__section}>
           <Link href="/">

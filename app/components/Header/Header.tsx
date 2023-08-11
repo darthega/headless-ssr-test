@@ -5,6 +5,7 @@ import {
 
 import { menuStructure } from "@components/MainMenu/utils/menuStructure";
 import { getClient } from "@lib/client";
+import { getCurrencyConfiguration } from "@lib/configuration";
 import { HeaderClient } from "./HeaderClient";
 
 export async function Header() {
@@ -17,8 +18,14 @@ export async function Header() {
       currencyCode: "EUR",
     },
   });
+  const currencyConfiguration = await getCurrencyConfiguration();
 
   const _menuStructure = menuStructure(data.suSuNavigationMenuCollection);
 
-  return <HeaderClient structure={_menuStructure} />;
+  return (
+    <HeaderClient
+      structure={_menuStructure}
+      currencyConfiguration={currencyConfiguration}
+    />
+  );
 }

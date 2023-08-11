@@ -1,0 +1,26 @@
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/mixins/_breakpoints.scss' as bp;
+
+.menu-group__title {
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+
+  @include bp.respond-from('sm') {
+    padding: 0 40px;
+  }
+
+  @include bp.respond-until('sm') {
+    padding: 0 30px;
+  }
+}
+
+.menu-group__top-offset {
+  @include bp.respond-from('sm') {
+    margin-top: 35px;
+  }
+
+  @include bp.respond-until('sm') {
+    margin-top: 25px;
+  }
+}
