@@ -1,0 +1,84 @@
+query footerContactAndLinksBlock($id: String!, $countryCode: String!) {
+  footerContactAndLinksBlock(id: $id) {
+    title
+    listSectionsCollection(limit: 4) {
+      __typename
+      items {
+        title
+        ctaCollection {
+          items {
+            title
+            styling
+            link {
+              ... on NavigationLink {
+                internalTitle
+                relativeUrl
+                referenceId
+                extraParameters
+                linkType
+              }
+            }
+            promotionEvents {
+              promotionClick
+              promotionView
+              promotionCreative
+              promotionPosition
+              promotionDimension24
+              promotionEventCategory
+              promotionEventAction
+              promotionEventLabel
+            }
+          }
+        }
+      }
+    }
+    contactSection {
+      title
+      contentSectionsCollection(limit: 5) {
+        __typename
+        items {
+          title
+          promotionEvents {
+            promotionClick
+            promotionView
+            promotionCreative
+            promotionPosition
+            promotionDimension24
+            promotionEventCategory
+            promotionEventAction
+            promotionEventLabel
+          }
+          text {
+            __typename
+            json
+            links {
+              entries {
+                inline {
+                  ... on PhoneInfo {
+                    phoneNumbersCollection(limit: 5, where: { countryCode_in: [$countryCode, "default"] }) {
+                      items {
+                        phoneDisplay
+                        phoneValue
+                        countryCode
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          link {
+            ... on NavigationLink {
+              internalTitle
+              relativeUrl
+              referenceId
+              extraParameters
+              absoluteUrl
+              linkType
+            }
+          }
+        }
+      }
+    }
+  }
+}

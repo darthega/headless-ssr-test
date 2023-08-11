@@ -1,0 +1,5 @@
+query PopularSearch($siteInfo: SiteInfo!) {
+
+  getPopularSearchPhrases(siteInfo: $siteInfo)
+
+}

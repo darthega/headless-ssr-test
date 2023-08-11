@@ -1,0 +1,45 @@
+query campaignCollectionBlockContent($id: String!) {
+  campaignCollectionBlock(id: $id) {
+    title
+    sys {
+      id
+    }
+    cta {
+      link {
+        relativeUrl
+        referenceId
+        extraParameters
+        linkType
+      }
+    }
+    contentCollection {
+      items {
+        ... on ImageWithText {
+          image {
+            cloudinaryMobileImage
+            cloudinaryDesktopImage
+            cloudinaryTabletImage
+            altText
+            lazyloading
+          }
+          title
+          colorPalette
+          link {
+            relativeUrl
+            referenceId
+            extraParameters
+            linkType
+          }
+          subline {
+            json
+          }
+          promotionEvents {
+            promotionClick
+            promotionCreative
+            promotionView
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+query footerCollection($slug: String!) {
+  footerCollection(where: { slug: $slug }) {
+    total
+    items {
+      internalName
+      slug
+      campaignSectionsCollection {
+        total
+        items {
+          __typename
+          ... on FooterStoreBlock {
+            sys {
+              id
+            }
+          }
+          ... on FooterNewsletterBlock {
+            sys {
+              id
+            }
+          }
+          ... on FooterUspBlock {
+            sys {
+              id
+            }
+          }
+          ... on FooterBottomBlock {
+            sys {
+              id
+            }
+          }
+          ... on FooterContactAndLinksBlock {
+            sys {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

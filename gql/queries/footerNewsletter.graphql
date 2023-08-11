@@ -1,0 +1,5 @@
+query footerNewsletterBlock($id: String!) {
+  footerNewsletterBlock(id: $id) {
+    title
+  }
+}

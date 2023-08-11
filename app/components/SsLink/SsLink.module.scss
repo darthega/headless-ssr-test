@@ -1,0 +1,110 @@
+.host {
+  --ss-link-color: var(--color-primary);
+  --ss-link-color-hover: var(--color-secondary);
+  --ss-link-font-family: var(--font-main);
+  --ss-link-font-weight: var(--font-weight-light);
+  --ss-link-icon-rotation: 0deg;
+
+  display: inline-flex;
+  font-family: var(--ss-link-font-family);
+  font-weight: var(--ss-link-font-weight);
+
+  & > span {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.link-icon-start .icon {
+    margin-inline-end: 5px;
+  }
+  &.link-icon-end .icon {
+    margin-inline-start: 5px;
+  }
+
+  &.full-width {
+    display: block;
+    width: 100%;
+  }
+
+  &:focus-within:focus-visible {
+    outline: solid 3px var(--color-overlay);
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+
+  & > span {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button.control {
+  appearance: none;
+  background: none;
+  border: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.control,
+.icon {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.icon {
+  font-size: 1.25rem;
+  transform: rotate3d(0, 0, 1, var(--ss-link-icon-rotation));
+  transition: transform var(--tr-duration-in) var(--tr-timing-in);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+}
+
+.count {
+  align-items: center;
+  background-color: var(--color-background);
+  border-radius: 50%;
+  border: solid 1px transparent;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-self: center;
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-regular);
+  font-size: 10px;
+  height: 18px;
+  justify-content: center;
+  line-height: 18px;
+  margin-inline-start: 8px;
+  width: 18px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .host {
+    outline: none;
+  }
+}
+
+.light {
+  color: var(--color-surface);
+}
+
+.dark {
+  color: var(--ss-link-color);
+}

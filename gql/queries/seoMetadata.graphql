@@ -1,0 +1,11 @@
+query seoMetadataContent($id: String!) {
+  seoMetadata(id: $id) {
+    pageDescription
+    pageTitle
+    canonicalUrl
+    viewport
+    keywords
+    metaCharset
+    robots
+  }
+}

@@ -1,0 +1,66 @@
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/global.scss' as *;
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/mixins/_breakpoints.scss' as bp;
+
+:root {
+  --header-height: 40px;
+
+  @include bp.respond-from('xl') {
+    --header-height: 55px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+// General html styles
+html, body {
+  min-height: 100%;
+}
+html {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: var(--font-weight-light);
+}
+
+// Screen reader only
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Reserve fixed header space
+body {
+  padding-block-start: var(--header-height);
+}
+
+// Hiding header helper class
+.is-header-hidden {
+  transform: translateY(-120%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.scroll-disabled {
+  position: fixed;
+  overflow: scroll;
+  top: var(--scroll-y);
+  left: var(--scroll-x);
+}
+
+// stylelint-disable-next-line
+ss-side-slider:not([class*='hydrated']) {
+  opacity: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}

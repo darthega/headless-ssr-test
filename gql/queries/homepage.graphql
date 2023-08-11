@@ -1,0 +1,40 @@
+query homepageContent {
+  homepageCollection(limit: 1) {
+    items {
+      seoMetadata {
+        sys {
+          id
+        }
+      }
+      campaignSectionsCollection {
+        items {
+          ... on ArticleCarrousel {
+            sys {
+              id
+            }
+          }
+          ... on CampaignCarrousel {
+            sys {
+              id
+            }
+          }
+          ... on CampaignCollectionBlock {
+            sys {
+              id
+            }
+          }
+          ... on HeroBanner {
+            sys {
+              id
+            }
+          }
+          ... on ImageWithText {
+            sys {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

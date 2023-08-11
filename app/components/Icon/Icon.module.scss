@@ -1,0 +1,24 @@
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/_vars' as *;
+@use '@suits/ss-design-system/dist/ss-components/styles/sass/typography/_family' as *;
+
+.host {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1em;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  width: 1em;
+
+  &.width-auto {
+    width: auto;
+  }
+
+  i {
+    font-family: var(--font-icon) !important;
+    font-style: normal;
+    color: var(--icon-color);
+    padding-top: 1px;
+  }
+}

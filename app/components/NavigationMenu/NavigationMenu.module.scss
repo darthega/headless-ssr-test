@@ -1,0 +1,23 @@
+@use "@suits/ss-design-system/dist/ss-components/styles/sass/mixins/_breakpoints.scss"
+  as bp;
+@use "@headless-commerce/styles/variables.scss" as *;
+
+.navigation-menu {
+  &__back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    padding: 8px 14px;
+    z-index: $navigation-menu-back-button;
+    font-size: 25px;
+    color: var(--color-secondary);
+
+    @include bp.respond-from("sm") {
+      left: 20px;
+    }
+
+    @include bp.respond-until("sm") {
+      left: 10px;
+    }
+  }
+}
